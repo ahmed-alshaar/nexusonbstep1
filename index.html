@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest'
+        };
+      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Gaming Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            base: '#121212',
+                            card: '#1A1A2E',
+                            cardHover: '#252839',
+                            violet: '#8A2BE2',
+                            violetGlow: 'rgba(138, 43, 226, 0.5)',
+                            emerald: '#50C878',
+                            emeraldGlow: 'rgba(80, 200, 120, 0.4)',
+                            text: '#F2F2F2',
+                            textMuted: '#94969F',
+                            border: '#2A2A35'
+                        }
+                    },
+                    backgroundImage: {
+                        'cyber-gradient': 'linear-gradient(180deg, #121212 0%, #1A1A2E 100%)',
+                        'card-gradient': 'linear-gradient(145deg, #1E1E21 0%, #121212 100%)',
+                    },
+                    boxShadow: {
+                        'neon-violet': '0 0 15px rgba(138, 43, 226, 0.3)',
+                        'neon-emerald': '0 4px 20px rgba(80, 200, 120, 0.4)',
+                        'card-inset': 'inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #F2F2F2;
+            -webkit-font-smoothing: antialiased;
+            position: fixed;
+            inset: 0;
+        }
+        
+        .glass-panel {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .hex-bg {
+            background-image: radial-gradient(rgba(138, 43, 226, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        
+        .scroll-container {
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            height: 100%;
+        }
+        
+        .scroll-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: rgba(138, 43, 226, 0.3);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-cyber-base">
+
+    <!-- Background Effects -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[50%] bg-cyber-violet opacity-20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#3F51B5] opacity-10 blur-[100px] rounded-full"></div>
+        <div class="absolute inset-0 hex-bg z-0"></div>
+        <div class="absolute inset-0 scanlines opacity-30"></div>
+    </div>
+
+    <!-- Main Mobile Container with Scroll -->
+    <div class="scroll-container fixed inset-0 z-10">
+        <main id="mobile-container" class="w-full max-w-[375px] mx-auto px-6 py-8 md:max-w-md lg:max-w-lg xl:max-w-xl pb-safe">
+            
+            <!-- Section 1: Hero Logo & Branding -->
+            <section id="hero-branding" class="flex flex-col items-center mt-8 mb-10 w-full">
+                <div class="relative w-20 h-20 mb-6 flex items-center justify-center rounded-2xl glass-panel shadow-neon-violet">
+                    <i class="fa-solid fa-gamepad text-4xl text-cyber-violet"></i>
+                    <div class="absolute inset-0 border border-cyber-violet rounded-2xl opacity-50"></div>
+                    <div class="absolute -inset-1 border border-cyber-violet rounded-2xl opacity-20 blur-[2px]"></div>
+                </div>
+                <h1 class="text-3xl font-extrabold tracking-tight text-white mb-2 text-center">
+                    NEXUS<span class="text-cyber-violet">.INTEL</span>
+                </h1>
+                <p class="text-cyber-textMuted text-sm font-mono tracking-widest uppercase text-center">
+                    System Initialization // Ready
+                </p>
+            </section>
+
+            <!-- Section 2: Value Proposition Carousel -->
+            <section id="value-props" class="w-full mb-10">
+                <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-cyber-violet shadow-[0_0_10px_#8A2BE2]"></div>
+                    
+                    <div class="flex flex-col space-y-4 relative z-10">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyber-cardHover flex items-center justify-center border border-cyber-border shrink-0">
+                                <i class="fa-solid fa-database text-cyber-violet text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm mb-1">Deep Metadata Discovery</h3>
+                                <p class="text-cyber-textMuted text-xs leading-relaxed">Access Gameopedia-level structural data. Find exact matches for your playstyle.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="h-[1px] w-full bg-gradient-to-r from-cyber-border to-transparent my-2"></div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyber-cardHover flex items-center justify-center border border-cyber-border shrink-0">
+                                <i class="fa-solid fa-bolt text-cyber-emerald text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm mb-1">Earn Insight Points</h3>
+                                <p class="text-cyber-textMuted text-xs leading-relaxed">Get rewarded for exploration. Claim real-world value for your gaming intelligence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-3 right-3 flex space-x-1">
+                        <div class="w-1.5 h-1.5 rounded-full bg-cyber-violet animate-pulse"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-cyber-border"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-cyber-border"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Authentication Portal -->
+            <section id="auth-portal" class="w-full flex flex-col">
+                <form class="flex flex-col space-y-4 w-full mb-6">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fa-regular fa-envelope text-cyber-textMuted text-sm"></i>
+                        </div>
+                        <input type="email" placeholder="Enter Agent Email" class="w-full bg-[#1A1A2E] border border-cyber-border text-white text-sm rounded-xl focus:ring-1 focus:ring-cyber-violet focus:border-cyber-violet block w-full pl-11 p-4 shadow-card-inset outline-none transition-all placeholder-cyber-textMuted font-mono">
+                    </div>
+                    
+                    <button type="button" class="w-full bg-cyber-emerald hover:bg-[#45b56a] text-cyber-base font-bold text-sm py-4 rounded-xl shadow-neon-emerald transition-all transform active:scale-[0.98] flex items-center justify-center space-x-2">
+                        <span>INITIALIZE LINK</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </form>
+
+                <div class="flex items-center justify-center space-x-4 mb-6">
+                    <div class="h-[1px] w-full bg-cyber-border"></div>
+                    <span class="text-cyber-textMuted text-xs font-mono whitespace-nowrap">OR BYPASS VIA</span>
+                    <div class="h-[1px] w-full bg-cyber-border"></div>
+                </div>
+
+                <!-- Section 4: Social Access Tier -->
+                <div id="social-access" class="grid grid-cols-2 gap-4 mb-8">
+                    <button class="flex items-center justify-center space-x-2 bg-[#1A1A2E] border border-cyber-border hover:border-cyber-textMuted text-white py-3.5 rounded-xl transition-all shadow-sm">
+                        <i class="fa-brands fa-apple text-lg"></i>
+                        <span class="text-sm font-medium">Apple</span>
+                    </button>
+                    <button class="flex items-center justify-center space-x-2 bg-[#1A1A2E] border border-cyber-border hover:border-cyber-textMuted text-white py-3.5 rounded-xl transition-all shadow-sm">
+                        <i class="fa-brands fa-google text-sm"></i>
+                        <span class="text-sm font-medium">Google</span>
+                    </button>
+                </div>
+                
+                <button class="w-full text-cyber-textMuted hover:text-white text-sm font-medium py-3 border border-transparent hover:border-cyber-border rounded-xl transition-all flex items-center justify-center space-x-2 group">
+                    <i class="fa-solid fa-user-secret text-xs group-hover:text-cyber-violet transition-colors"></i>
+                    <span>Guest Browse (Read-Only)</span>
+                </button>
+            </section>
+
+            <!-- Section 5: Legal & Privacy Footer -->
+            <section id="legal-footer" class="mt-12 pt-8 pb-8 w-full text-center">
+                <p class="text-[10px] text-cyber-textMuted leading-loose font-mono">
+                    By initializing, you agree to the <br>
+                    <a href="#" class="text-cyber-violet hover:text-white underline decoration-cyber-violet/30 underline-offset-4 transition-colors">Terms of Service</a> & 
+                    <a href="#" class="text-cyber-violet hover:text-white underline decoration-cyber-violet/30 underline-offset-4 transition-colors">Privacy Protocol</a>
+                </p>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
